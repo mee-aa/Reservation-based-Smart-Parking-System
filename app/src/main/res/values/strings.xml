@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Smartparking</string>
+    <array name="cars">
+        <item>R.id.car1</item>
+        <item>R.id.car2</item>
+        <item>R.id.car3</item>
+        <item>R.id.car4</item>
+        <item>R.id.car5</item>
+        <item>R.id.car6</item>
+        <item>R.id.car7</item>
+        <item>R.id.car8</item>
+    </array>
+</resources>

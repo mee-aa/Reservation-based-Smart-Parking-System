@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="F:\data\Smartparking\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="93c10d68ab5ea070f15782ae6d3a28d1f1d8f45e">
+        <dex dex="F:\data\Smartparking\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.3.0_bcd76aa8ef2f034b4e8a84f0cd45bf97dcdaa7e8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="F:\data\Smartparking\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="518768f3200963fbfec652f498da2c9d39245234">
+        <dex dex="F:\data\Smartparking\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.3.0_dc2fd89c163bef7364363ce95c6da898fd052242.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="F:\data\Smartparking\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="F:\data\Smartparking\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.3.0_742fa1584c30e494c3ee7713b179574ba861e019.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="F:\data\Smartparking\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b746ef0fd46acb5aaf3d9ab9a4cec22c28d3211">
+        <dex dex="F:\data\Smartparking\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.3.0_3b63491665565b4cf2e97b0e4932d81c8619d4f6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\mindscript-sagar\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.0\support-annotations-25.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="dd84903d2e1af25a6081ef9038ad863cb14ca3a0">
+        <dex dex="F:\data\Smartparking\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.0_e3eb5b37583aba4d9265f5d3e7b1ab6ca7591bde.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="F:\data\Smartparking\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="70f23cb87278f89aa51e6f57e8f0fd5266572d95">
+        <dex dex="F:\data\Smartparking\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.3.0_d70c7132520f434b56365887657b067064984f20.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="F:\data\Smartparking\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="425c7b17887e5c3f8cbdf67ba171bc246f29b42c">
+        <dex dex="F:\data\Smartparking\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.3.0_ba775a2cac191819ea50598b5e1279b1257b8143.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="F:\data\Smartparking\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5cc5ef8347a6bafa14556cbd35230aa9b3431bb0">
+        <dex dex="F:\data\Smartparking\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.3.0_e6b13038288835110cfb521fa9e5df865a790e20.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="F:\data\Smartparking\app\build\intermediates\exploded-aar\com.mcxiaoke.volley\library-aar\1.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e40b9a81989bd4a846018551c280f8c4d837bf2e">
+        <dex dex="F:\data\Smartparking\app\build\intermediates\pre-dexed\debug\com.mcxiaoke.volley-library-aar-1.0.0_3d058e20450a02338561807b412c63517569835c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="F:\data\Smartparking\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="93c1199fcb0a34b980e6fff8350daff62e696ec2">
+        <dex dex="F:\data\Smartparking\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.3.0_62d90576ed40d50432ad23c4182e3154bd79478c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="F:\data\Smartparking\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d6a04527c17597019dad82777c5094a3d60d1c33">
+        <dex dex="F:\data\Smartparking\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.3.0_edd38f3202ed7ee6dde045c09ce12fc18c502970.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="F:\data\Smartparking\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f6e3960e73fdc1a9c863f1f9f1ec595ec0b9c2a5">
+        <dex dex="F:\data\Smartparking\app\build\intermediates\pre-dexed\debug\instant-run_aa3b2e5f45c7b5f1fa455bca69a7f93e3e594545.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="F:\data\Smartparking\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1b3e239d8ececfb6047b466310dce14ad5baa926">
+        <dex dex="F:\data\Smartparking\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_add752871ddf6f0cf4377c549b49eae2eec695f8.jar" />
+    </item>
+
+</items>
