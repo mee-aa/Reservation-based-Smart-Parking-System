@@ -1,0 +1,192 @@
+////////////////////////////APPLICATION.C////////////////////////
+/////////////////////////////////////////////////////////////////
+#include "Application.h"
+#include "RxBuf.h"
+#include "AS1.h"
+ 
+#include <stdio.h>                           
+#include <stdint.h>                          
+#include <string.h>                          
+#include <stdlib.h>                          
+
+#define IR_1 IR_1_GetVal(NULL)
+#define IR_2 IR_2_GetVal(NULL)
+#define IR_3 IR_3_GetVal(NULL)
+#define IR_4 IR_4_GetVal(NULL)
+#define IR_5 IR_5_GetVal(NULL)
+#define IR_6 IR_6_GetVal(NULL)
+#define IR_7 IR_7_GetVal(NULL)
+#define IR_8 IR_8_GetVal(NULL)
+
+static UART_Desc deviceData;
+
+
+void Set_WiFi_Connection(void);
+void Send_Data_WiFi(char buffer_1[]);
+//void Send_IR_Data(unsigned char IR_data , unsigned char IR_no);
+
+ 
+static void SendChar(unsigned char ch, UART_Desc *desc) {
+  desc->isSent = FALSE;  /* this will be set to 1 once the block has been sent */
+  while(AS1_SendBlock(desc->handle, (LDD_TData*)&ch, 1)!=ERR_OK) {} /* Send char */
+  while(!desc->isSent) {} /* wait until we get the green flag from the TX interrupt */
+}
+ 
+static void SendString(const unsigned char *str,  UART_Desc *desc) {
+  while(*str!='\0') {
+    SendChar(*str++, desc);
+  }
+}
+ 
+static void Init(void) {
+  /* Initialise struct fields */
+  deviceData.handle = AS1_Init(&deviceData);
+  deviceData.isSent = FALSE;
+  deviceData.rxChar = '\0';
+  deviceData.rxPutFct = RxBuf_Put;
+  /* set up to receive RX into input buffer */
+  RxBuf_Init(); /* Initialise RX buffer */
+  /* Set up ReceiveBlock() with a single byte buffer. We will be called in OnBlockReceived() event. */
+  while(AS1_ReceiveBlock(deviceData.handle, (LDD_TData *)&deviceData.rxChar, sizeof(deviceData.rxChar))!=ERR_OK) {} /* initial kick off for receiving data */
+}
+ 
+
+
+
+
+void APP_Run(void) 
+{
+		
+	char buffer_1[10];
+	char buffer_2[10];
+	char buffer_3[10];
+	char buffer_4[10];
+	char buffer_5[10];
+	char buffer_6[10];
+	char buffer_7[10];
+	char buffer_8[10];
+	
+	Init();
+  
+	//LEDB_ClrVal();
+	//LEDR_ClrVal();
+	//LEDG_ClrVal();
+	
+	//char data_str1[]="GET /test.php?id=";            //17 chars             total(17+9+8+2=36 Chars)
+	//char data_str2[]=" HTTP/1.1\r\n";                //9 chars 
+	  
+	Set_WiFi_Connection();
+	
+	while(1)
+	{
+		  
+		/*------------ LEDx_SetVal--> Turns ON the 'x' LED-------------*/
+		/*------------ LEDx_ClrVal--> Turns OFF the 'x' LED------------*/
+		char data_str1[]="GET /test.php?id=";            //17 chars             total(17+9+8+2=36 Chars)
+		char data_str2[]=" HTTP/1.1\r\n";                //9 chars 
+		
+		sprintf(buffer_1, "%d", IR_1);
+		sprintf(buffer_2, "%d", IR_2);
+		sprintf(buffer_3, "%d", IR_3);
+		sprintf(buffer_4, "%d", IR_4);
+		sprintf(buffer_5, "%d", IR_5);
+		sprintf(buffer_6, "%d", IR_6);
+		sprintf(buffer_7, "%d", IR_7);
+		sprintf(buffer_8, "%d", IR_8);
+		
+		strcat(buffer_1,buffer_2);
+		strcat(buffer_1,buffer_3);
+		strcat(buffer_1,buffer_4);
+		strcat(buffer_1,buffer_5);
+		strcat(buffer_1,buffer_6);
+		strcat(buffer_1,buffer_7);
+		strcat(buffer_1,buffer_8);
+		
+		//Send_Data_WiFi(buffer_1);
+		//WAIT1_Waitms(500);
+		
+	//////////////////////////////////////////////////////////////////////////////////
+			 strcat(data_str1,buffer_1);
+			 strcat(data_str1,data_str2);
+			
+			
+			 SendString((unsigned char*)data_str1 , &deviceData); 
+			 WAIT1_Waitms(2000);
+			 
+			 
+			SendString((unsigned char*)"AT+CIPSEND=36\r\n", &deviceData);
+			WAIT1_Waitms(2000);              //'1'_seconds delay
+
+			SendString((unsigned char*)data_str1 , &deviceData);
+			//SendString((unsigned char*)"GET /test.php?id=1 HTTP/1.1\r\n", &deviceData);
+			WAIT1_Waitms(2000);                                                                            //'1'_seconds delay
+			
+			SendString((unsigned char*)"AT+CIPSEND=35\r\n", &deviceData);
+			WAIT1_Waitms(2000);                                                                            //'1'_seconds delay
+			
+			SendString((unsigned char*)"host: myfinalyearproject.online\r\n", &deviceData);
+			WAIT1_Waitms(3);                                                                            //'3ms'_seconds delay
+			
+			SendString((unsigned char*)"\r\n", &deviceData);
+
+		
+	/////////////////////////////////////////////////////////////////////////////////////	
+		WAIT1_Waitms(1000);                 //Send Data in every 10_Seconds 
+		//WAIT1_Waitms(10000);                 //Send Data in every 10_Seconds 
+		//WAIT1_Waitms(10000);                 //Send Data in every 10_Seconds 
+		//WAIT1_Waitms(10000);                 //Send Data in every 10_Seconds 
+		//WAIT1_Waitms(10000);                 //Send Data in every 10_Seconds 
+		//WAIT1_Waitms(10000);                 //Send Data in every 10_Seconds 
+	}
+	
+	
+}
+
+
+
+
+void Set_WiFi_Connection(void)
+{
+	SendString((unsigned char*)"AT+CWJAP=\"Meena\",\"meens@2017\"\r\n", &deviceData);    //To Establish WiFi Connection
+	WAIT1_Waitms(5000);
+	WAIT1_Waitms(10000);
+	
+	SendString((unsigned char*)"AT+CIPSTART=\"TCP\",\"myfinalyearproject.online\",80\r\n", &deviceData);
+	WAIT1_Waitms(5000);              //'3'_seconds delay
+}
+
+
+
+void Send_Data_WiFi(char buffer_1[])
+{
+	 char data_str1[]="GET /test.php?id=";            //17 chars             total(17+9+8+2=36 Chars)
+	 char data_str2[]=" HTTP/1.1\r\n";                //9 chars 
+	 
+	
+	 strcat(data_str1,buffer_1);
+	 strcat(data_str1,data_str2);
+	
+	
+	 SendString((unsigned char*)data_str1 , &deviceData); 
+	 WAIT1_Waitms(2000);
+	 
+	 
+	SendString((unsigned char*)"AT+CIPSEND=36\r\n", &deviceData);
+	WAIT1_Waitms(2000);              //'1'_seconds delay
+
+	SendString((unsigned char*)data_str1 , &deviceData);
+	//SendString((unsigned char*)"GET /test.php?id=1 HTTP/1.1\r\n", &deviceData);
+	WAIT1_Waitms(2000);                                                                            //'1'_seconds delay
+	
+	SendString((unsigned char*)"AT+CIPSEND=35\r\n", &deviceData);
+	WAIT1_Waitms(2000);                                                                            //'1'_seconds delay
+	
+	SendString((unsigned char*)"host: myfinalyearproject.online\r\n", &deviceData);
+	WAIT1_Waitms(3);                                                                            //'3ms'_seconds delay
+	
+	SendString((unsigned char*)"\r\n", &deviceData);
+}
+
+
+
+
